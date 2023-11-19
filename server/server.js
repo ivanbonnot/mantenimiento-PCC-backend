@@ -78,8 +78,8 @@ const baseProcces = () => {
     // Configura el encabezado CORS para permitir solicitudes desde 'http://localhost:3000'
     app.use((req, res, next) => {
         res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-        res.header('Access-Control-Allow-Origin', 'https://anotador.ivanbodeveloper.com/');
-        res.header('Access-Control-Allow-Origin', 'http://anotador.ivanbodeveloper.com/');
+        res.header('Access-Control-Allow-Origin', 'https://apianotador.ivanbodeveloper.com/');
+        res.header('Access-Control-Allow-Origin', 'http://apianotador.ivanbodeveloper.com/');
         // Puedes configurar otros encabezados CORS según sea necesario
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();

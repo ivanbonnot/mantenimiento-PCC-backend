@@ -16,6 +16,10 @@ authWebRouter.use(flash())
 
 //__LOGIN__//
 
+authWebRouter.get('/login', async (req, res) => {
+    res.redirect('/')
+})
+
 authWebRouter.post('/login', passport.authenticate('login', { failureRedirect: '/login', failureFlash: true }), async (req, res) => {
     try {
         req.session.passport.user = req.user.username
@@ -26,10 +30,6 @@ authWebRouter.post('/login', passport.authenticate('login', { failureRedirect: '
         handleServerError(res, error);
     }
 });
-
-authWebRouter.get('/login', async (req, res) => {
-    res.redirect('/')
-})
 
 authWebRouter.put('/changepassword', validationResult, passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {

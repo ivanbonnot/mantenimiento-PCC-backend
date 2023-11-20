@@ -27,6 +27,9 @@ authWebRouter.post('/login', passport.authenticate('login', { failureRedirect: '
     }
 });
 
+authWebRouter.get('/login', async (req, res) => {
+    res.redirect('/')
+})
 
 authWebRouter.put('/changepassword', validationResult, passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
@@ -49,10 +52,6 @@ authWebRouter.put('/changepassword', validationResult, passport.authenticate('jw
         handleServerError(res, error);
     }
 });
-
-authWebRouter.get('/login', async (req, res) => {
-    res.redirect('/')
-})
 
 
 //__REGISTER__//

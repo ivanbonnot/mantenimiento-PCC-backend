@@ -50,6 +50,10 @@ authWebRouter.put('/changepassword', validationResult, passport.authenticate('jw
     }
 });
 
+authWebRouter.ger('/login', async (req, res) => {
+    res.redirect('/')
+})
+
 
 //__REGISTER__//
 // Ruta para registrar usuarios (admin)

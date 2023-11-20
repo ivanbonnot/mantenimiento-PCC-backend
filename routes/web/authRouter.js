@@ -50,7 +50,7 @@ authWebRouter.put('/changepassword', validationResult, passport.authenticate('jw
     }
 });
 
-authWebRouter.ger('/login', async (req, res) => {
+authWebRouter.get('/login', async (req, res) => {
     res.redirect('/')
 })
 

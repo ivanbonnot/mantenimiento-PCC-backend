@@ -98,6 +98,7 @@ const baseProcces = () => {
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'build', 'index.html'));
     });
+
     const PORT = 8080
     const server = httpServer.listen(PORT, () => {
         connectToDb("mongo")

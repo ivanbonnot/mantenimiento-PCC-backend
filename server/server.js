@@ -42,7 +42,6 @@ const baseProcces = () => {
     //Settings
     app.engine('hbs', engine());
     app.set('view engine', 'hbs');
-    //app.set('views', 'views');
     app.set('port', process.env.PORT || 8080)
     app.set('json spaces', 2)
 
@@ -93,6 +92,8 @@ const baseProcces = () => {
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
         next();
     });
+
+    app.use(express.static(path.join(__dirname, 'build')));
 
     // Configuración para manejar todas las demás solicitudes y redirigirlas a tu aplicación principal
     app.get('*', (req, res) => {

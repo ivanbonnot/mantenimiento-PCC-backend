@@ -31,14 +31,9 @@ authWebRouter.post('/login', passport.authenticate('login', { failureRedirect: '
     }
 });
 
-authWebRouter.put('/changepassword', registrationValidation, passport.authenticate('jwt', { session: false }), async (req, res) => {
+authWebRouter.put('/changepassword',  passport.authenticate('jwt', { session: false }), async (req, res) => {
     try {
-        const errors = validationResult(req);
-
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
+        
         const { username, password } = req.body;
         const userUpdate = { password };
 

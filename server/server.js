@@ -93,13 +93,7 @@ const baseProcces = () => {
         next();
     });
 
-    app.use(express.static(path.join(__dirname, 'build')));
-
-    // Configuración para manejar todas las demás solicitudes y redirigirlas a tu aplicación principal
-    app.get('*', (req, res) => {
-        res.redirect('https://anotador.ivanbodeveloper.com/');
-      });
-
+   
     const PORT = 8080
     const server = httpServer.listen(PORT, () => {
         connectToDb("mongo")
